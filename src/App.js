@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div className="relative ">
-      <div className="w-full h-[20vh] lg:h-[25vh] bg-primary ">
+      <div className="w-full h-[15vh] lg:h-[20vh] bg-primary ">
         <div
           className="flex lg:hidden w-full h-full bg-no-repeat bg-cover"
           style={{ backgroundImage: 'url("./images/bg-header-mobile.svg")' }}
@@ -66,7 +66,7 @@ function App() {
           style={{ backgroundImage: 'url("./images/bg-header-desktop.svg")' }}
         />
       </div>
-      <div className=" bg-grayishBackground min-h-[80vh] lg:min-h-[75vh]">
+      <div className=" bg-grayishBackground min-h-[85vh] lg:min-h-[80vh]">
         {filteredCategories.length !== 0 && (
           <JobFilter
             filter={filteredCategories}

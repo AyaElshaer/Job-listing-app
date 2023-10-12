@@ -21,20 +21,13 @@ This challenge is to build out job listing page with filter
 
 Users should be able to:
 - Filter job listings based on the categories
-
-### Screenshot
-
-![app-desktop](./public/screenshots/app-desktop.png)
-![app-filter-desktop](./public/screenshots/app-filter-desktop.png)
-![app-mobile](./public/screenshots/app-mobile.png)
-![app-filter-mobile](./public/screenshots/app-filter-mobile.png)
-
-
+- delete item from filtered Categories
+- clear all filters
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/react-js-tailwindcss-c-yhC_4hJk)
+- Live Site URL: [Add live site URL here](https://job-listing-app-with-filter.netlify.app/)
 
 
 ### Built with
@@ -53,5 +46,11 @@ Users should be able to:
 
 - Frontend Mentor - [@AyaElshaer](https://www.frontendmentor.io/profile/AyaElshaer)
 
+### Screenshot
+
+![app-desktop](./public/screenshots/app-desktop.png)
+![app-filter-desktop](./public/screenshots/app-filter-desktop.png)
+![app-mobile](./public/screenshots/app-mobile.png)
+![app-filter-mobile](./public/screenshots/app-filter-mobile.png)
 
 
