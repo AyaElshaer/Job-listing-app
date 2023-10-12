@@ -55,7 +55,7 @@ function App() {
   }, [filteredCategories, jobs])
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <div className="w-full h-[25vh] bg-primary ">
         <div
           className="flex lg:hidden w-full h-full bg-no-repeat bg-cover"
@@ -66,7 +66,7 @@ function App() {
           style={{ backgroundImage: 'url("./images/bg-header-desktop.svg")' }}
         />
       </div>
-      <div className=" bg-grayishBackground">
+      <div className=" bg-grayishBackground min-h-[75vh]">
         {filteredCategories.length !== 0 && (
           <JobFilter
             filter={filteredCategories}
