@@ -1,23 +1,86 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react"
+import JobsList from "./component/JobsList"
+import JobFilter from "./component/JobFilter"
 
 function App() {
+  const [jobs, setJobs] = useState([])
+  const [filteredCategories, setFilterCategories] = useState([])
+  const [filteredJobs, setFilteredJobs] = useState(jobs)
+
+  const getJobsData = async () => {
+    const getJobsRes = await fetch("data.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+    if (getJobsRes.ok) {
+      const jobsList = await getJobsRes.json();
+      setJobs(jobsList);
+    }
+  }
+
+  useEffect(() => {
+    getJobsData()
+  }, [])
+
+  const addToFilterCategories = (category) => {
+    if (!filteredCategories.includes(category)) {
+      setFilterCategories([...filteredCategories, category])
+    }
+  }
+
+  const removerFilterItem = (item) => {
+    const updatedFilter = filteredCategories.filter(
+      (category) => category !== item
+    )
+    setFilterCategories(updatedFilter);
+  }
+
+  const clearAllFilter = () => {
+    setFilterCategories([])
+  }
+
+  useEffect(() => {
+    const filteredJobs = []
+    jobs.filter(
+      (job) => {
+        const jobCategories = [...job.languages, ...job.tools, job.level, job.role]
+        if (filteredCategories.every((v) => jobCategories.includes(v))) {
+        filteredJobs.push(job)
+      }
+      return filteredJobs
+    })
+    setFilteredJobs(filteredJobs)
+  }, [filteredCategories, jobs])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="relative">
+      <div className="w-full h-[25vh] bg-primary ">
+        <div
+          className="flex lg:hidden w-full h-full bg-no-repeat bg-cover"
+          style={{ backgroundImage: 'url("./images/bg-header-mobile.svg")' }}
+        />
+        <div
+          className="hidden lg:flex w-full h-full bg-no-repeat bg-cover"
+          style={{ backgroundImage: 'url("./images/bg-header-desktop.svg")' }}
+        />
+      </div>
+      <div className=" bg-grayishBackground">
+        {filteredCategories.length !== 0 && (
+          <JobFilter
+            filter={filteredCategories}
+            removerFilterItem={removerFilterItem}
+            clearAllFilter={clearAllFilter}
+          />
+        )}
+
+        <JobsList
+          addToFilterCategories={addToFilterCategories}
+          filteredCategories={filteredCategories}
+          jobs={filteredJobs}
+        />
+      </div>
     </div>
   );
 }
