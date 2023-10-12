@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/react-js-tailwindcss-c-yhC_4hJk)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/job-listing-page-with-filter-using-reactjs-and-tailwindcss-EhjYiWeSJS)
 - Live Site URL: [Add live site URL here](https://job-listing-app-with-filter.netlify.app/)
 
 
